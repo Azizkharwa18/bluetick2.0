@@ -7,30 +7,30 @@
   --bg-section: rgba(0, 0, 0, 0.02);
   
   /* Text - Professional Hierarchy */
-  --text-primary: rgb(0, 55, 32);
-  --text-body: rgb(14, 15, 12);
-  --text-secondary: rgb(131, 146, 140);
-  --text-muted: rgb(175, 183, 180);
+  --text-primary: #1a1a1a;
+  --text-body: #2d2d2d;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
   
   /* Borders - Subtle Separation */
   --border-light: rgba(0, 0, 0, 0.1);
   --border-medium: rgba(0, 0, 0, 0.2);
   --border-strong: rgba(0, 0, 0, 0.3);
   
-  /* BRAND COLORS - Green Accent System */
-  --accent-primary: #8FEC78;
-  --accent-strong: #81DD67;
-  --accent-text: rgb(13, 121, 22);
-  --accent-wash: rgba(148, 242, 127, 0.1);
+  /* BRAND COLORS - Blue Accent System */
+  --accent-primary: #3b82f6;
+  --accent-strong: #2563eb;
+  --accent-text: #1d4ed8;
+  --accent-wash: rgba(59, 130, 246, 0.1);
   
   /* WhatsApp Brand Colors */
   --whatsapp-green: #25D366;
   --whatsapp-dark: #128C7E;
   
   /* Hero Gradients */
-  --gradient-hero: radial-gradient(at 53% 78%, hsla(60,100%,50%,0.3) 0px, transparent 50%), 
-                   radial-gradient(at 71% 91%, hsla(108,100%,50%,0.3) 0px, transparent 50%), 
-                   radial-gradient(at 31% 91%, hsla(30,100%,50%,0.17) 0px, transparent 50%);
+  --gradient-hero: radial-gradient(at 53% 78%, hsla(220,100%,70%,0.2) 0px, transparent 50%), 
+                   radial-gradient(at 71% 91%, hsla(240,100%,80%,0.15) 0px, transparent 50%), 
+                   radial-gradient(at 31% 91%, hsla(200,100%,85%,0.1) 0px, transparent 50%);
   
   /* Button Gradients */
   --gradient-button: linear-gradient(to bottom right, var(--accent-primary), var(--accent-strong));
