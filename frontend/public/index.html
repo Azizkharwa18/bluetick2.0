@@ -1,151 +1,382 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetick - WhatsApp Bulk Messaging Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-brand">
+            <i class="fab fa-whatsapp nav-logo"></i>
+            <span class="brand-name">Bluetick</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#whatsapp-chat" class="btn-primary nav-cta">
+                <i class="fab fa-whatsapp"></i>
+                Chat Now
+            </a>
+        </div>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>Emergent | Fullstack App</title>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <a
-            id="emergent-badge"
-            target="_blank"
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: flex !important;
-                align-items: center !important;
-                position: fixed !important;
-                bottom: 20px;
-                right: 20px;
-                text-decoration: none;
-                padding: 6px 10px;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                border-radius: 8px !important;
-                background-color: #ffffff !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            "
-        >
-            <div
-                style="display: flex; flex-direction: row; align-items: center"
-            >
-                <img
-                    style="width: 20px; height: 20px; margin-right: 8px"
-                    src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4"
-                />
-                <p
-                    style="
-                        color: #000000;
-                        font-family: -apple-system, BlinkMacSystemFont,
-                            &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu,
-                            Cantarell, &quot;Open Sans&quot;,
-                            &quot;Helvetica Neue&quot;, sans-serif !important;
-                        font-size: 12px !important;
-                        align-items: center;
-                        margin-bottom: 0;
-                    "
-                >
-                    Made with Emergent
-                </p>
-            </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features" class="mobile-nav-link">Features</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#whatsapp-chat" class="btn-primary mobile-cta">
+            <i class="fab fa-whatsapp"></i>
+            Chat Now
         </a>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
-        </script>
-    </body>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Scale Your Business with 
+                <span class="accent-text">WhatsApp Bulk Messaging</span>
+            </h1>
+            <p class="hero-subtitle">
+                Send thousands of WhatsApp messages instantly. Starting at just ₹0.15 per text message. 
+                Reach your customers directly with 98% open rates.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-primary hero-btn" onclick="scrollToContact()">
+                    <i class="fas fa-rocket"></i>
+                    Start Free Trial
+                </button>
+                <button class="btn-secondary hero-btn" onclick="scrollToPricing()">
+                    <i class="fas fa-tag"></i>
+                    View Pricing
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">Messages Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Delivery Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Bluetick?</h2>
+            <p class="section-subtitle">Powerful features designed for modern businesses</p>
+            
+            <div class="ai-grid">
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="product-card-title">Lightning Fast Delivery</h3>
+                    <p class="product-card-description">
+                        Send bulk messages in seconds. Our advanced infrastructure ensures 
+                        98% delivery rate with instant message processing.
+                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="product-card-title">WhatsApp Compliant</h3>
+                    <p class="product-card-description">
+                        100% compliant with WhatsApp Business API policies. 
+                        No risk of account suspension or message blocking.
+                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="product-card-title">Real-time Analytics</h3>
+                    <p class="product-card-description">
+                        Track delivery status, read receipts, and engagement metrics. 
+                        Make data-driven decisions for your campaigns.
+                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="product-card-title">Contact Management</h3>
+                    <p class="product-card-description">
+                        Organize contacts in groups, import from CSV, 
+                        and manage your audience with powerful segmentation tools.
+                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="product-card-title">Rich Media Support</h3>
+                    <p class="product-card-description">
+                        Send images, videos, documents, and audio files. 
+                        Create engaging campaigns with multimedia content.
+                    </p>
+                </div>
+                
+                <div class="product-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="product-card-title">Scheduled Messaging</h3>
+                    <p class="product-card-description">
+                        Schedule messages for optimal delivery times. 
+                        Automate your campaigns and reach global audiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Pay only for what you use. No hidden fees or monthly subscriptions.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Text Messages</h3>
+                        <div class="pricing-price">
+                            <span class="currency">₹</span>
+                            <span class="amount">0.15</span>
+                            <span class="period">per message</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Plain text messages</li>
+                        <li><i class="fas fa-check"></i> 98% delivery guarantee</li>
+                        <li><i class="fas fa-check"></i> Real-time delivery status</li>
+                        <li><i class="fas fa-check"></i> Contact management</li>
+                        <li><i class="fas fa-check"></i> Campaign analytics</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                    </ul>
+                    <button class="btn-primary pricing-btn">
+                        <i class="fas fa-play"></i>
+                        Get Started
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Media Messages</h3>
+                        <div class="pricing-price">
+                            <span class="currency">₹</span>
+                            <span class="amount">0.25</span>
+                            <span class="period">per message</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Text + Images/Videos</li>
+                        <li><i class="fas fa-check"></i> Document sharing</li>
+                        <li><i class="fas fa-check"></i> Audio messages</li>
+                        <li><i class="fas fa-check"></i> File size up to 16MB</li>
+                        <li><i class="fas fa-check"></i> All text features included</li>
+                        <li><i class="fas fa-check"></i> Priority delivery</li>
+                    </ul>
+                    <button class="btn-secondary pricing-btn">
+                        <i class="fas fa-image"></i>
+                        Choose Media
+                    </button>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> 
+                Minimum recharge: ₹1000 | Volume discounts available for 50K+ messages</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title">Ready to Scale Your Business?</h2>
+                    <p class="contact-description">
+                        Join thousands of businesses already using Bluetick to reach their customers. 
+                        Get started in minutes with our easy setup process.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp Support</h4>
+                                <p>Get instant help via WhatsApp</p>
+                                <button class="btn-primary contact-btn">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Chat Now
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Support</h4>
+                                <p>support@bluetick.in</p>
+                                <a href="mailto:support@bluetick.in" class="link-text">Send Email</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone Support</h4>
+                                <p>Available 9 AM - 9 PM IST</p>
+                                <a href="tel:+918888888888" class="link-text">+91 88888 88888</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                        <h3 class="form-title">Start Your Free Trial</h3>
+                        
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business" class="form-label">Business Type</label>
+                            <select id="business" name="business" class="form-input" required>
+                                <option value="">Select Business Type</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="retail">Retail</option>
+                                <option value="education">Education</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="volume" class="form-label">Expected Monthly Volume</label>
+                            <select id="volume" name="volume" class="form-input" required>
+                                <option value="">Select Volume</option>
+                                <option value="1k-5k">1K - 5K messages</option>
+                                <option value="5k-25k">5K - 25K messages</option>
+                                <option value="25k-100k">25K - 100K messages</option>
+                                <option value="100k+">100K+ messages</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary form-submit">
+                            <i class="fas fa-rocket"></i>
+                            Start Free Trial
+                        </button>
+                        
+                        <p class="form-note">
+                            No credit card required • Free setup • 24/7 support
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="brand-name">Bluetick</span>
+                    </div>
+                    <p class="footer-description">
+                        The most reliable WhatsApp bulk messaging service for modern businesses. 
+                        Trusted by 5000+ companies across India.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Product</h4>
+                        <a href="#features" class="footer-link">Features</a>
+                        <a href="#pricing" class="footer-link">Pricing</a>
+                        <a href="#" class="footer-link">API Documentation</a>
+                        <a href="#" class="footer-link">Integration</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Support</h4>
+                        <a href="#contact" class="footer-link">Contact Us</a>
+                        <a href="#" class="footer-link">Help Center</a>
+                        <a href="#" class="footer-link">WhatsApp Support</a>
+                        <a href="#" class="footer-link">Status Page</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Company</h4>
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Compliance</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Bluetick. All rights reserved. | Built for businesses that scale.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
