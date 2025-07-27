@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Bluetick WhatsApp Bulk Messaging</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-brand">
+            <i class="fab fa-whatsapp nav-logo"></i>
+            <span class="brand-name">Bluetick</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html#features" class="nav-link">Features</a>
+            <a href="index.html#pricing" class="nav-link">Pricing</a>
+            <a href="login.html" class="btn-secondary nav-cta">
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+            </a>
+        </div>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="index.html#features" class="mobile-nav-link">Features</a>
+        <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="login.html" class="btn-secondary mobile-cta">
+            <i class="fas fa-sign-in-alt"></i>
+            Sign In
+        </a>
+    </div>
+
+    <!-- Signup Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <!-- Left Side - Branding -->
+                <div class="auth-brand">
+                    <div class="auth-brand-content">
+                        <div class="auth-logo">
+                            <i class="fab fa-whatsapp auth-logo-icon"></i>
+                            <h1 class="auth-brand-title">Bluetick</h1>
+                        </div>
+                        <h2 class="auth-brand-subtitle">Join Thousands of Businesses</h2>
+                        <p class="auth-brand-description">
+                            Create your account to start sending WhatsApp bulk messages instantly. 
+                            Join 5000+ happy clients who trust Bluetick for their messaging needs.
+                        </p>
+                        
+                        <div class="auth-stats">
+                            <div class="auth-stat">
+                                <div class="auth-stat-number">10M+</div>
+                                <div class="auth-stat-label">Messages Sent</div>
+                            </div>
+                            <div class="auth-stat">
+                                <div class="auth-stat-number">98%</div>
+                                <div class="auth-stat-label">Delivery Rate</div>
+                            </div>
+                            <div class="auth-stat">
+                                <div class="auth-stat-number">5000+</div>
+                                <div class="auth-stat-label">Happy Clients</div>
+                            </div>
+                        </div>
+                        
+                        <div class="auth-testimonial">
+                            <p class="auth-testimonial-text">
+                                "Bluetick transformed our customer communication. 
+                                We've seen 3x better engagement rates!"
+                            </p>
+                            <div class="auth-testimonial-author">
+                                <div class="auth-testimonial-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="auth-testimonial-info">
+                                    <div class="auth-testimonial-name">Priya Sharma</div>
+                                    <div class="auth-testimonial-role">E-commerce Owner</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Signup Form -->
+                <div class="auth-form-container">
+                    <form class="auth-form" onsubmit="handleSignup(event)">
+                        <div class="auth-form-header">
+                            <h3 class="auth-form-title">Create Account</h3>
+                            <p class="auth-form-subtitle">Get started with your free account</p>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group form-group-half">
+                                <label for="firstName" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    First Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    class="form-input" 
+                                    placeholder="First name"
+                                    required
+                                    autocomplete="given-name"
+                                >
+                            </div>
+                            
+                            <div class="form-group form-group-half">
+                                <label for="lastName" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    Last Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    class="form-input" 
+                                    placeholder="Last name"
+                                    required
+                                    autocomplete="family-name"
+                                >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="Enter your email"
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                <i class="fas fa-phone"></i>
+                                Phone Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="Enter your phone number"
+                                required
+                                autocomplete="tel"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company" class="form-label">
+                                <i class="fas fa-building"></i>
+                                Company Name
+                            </label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                class="form-input" 
+                                placeholder="Enter your company name"
+                                required
+                                autocomplete="organization"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessType" class="form-label">
+                                <i class="fas fa-briefcase"></i>
+                                Business Type
+                            </label>
+                            <select id="businessType" name="businessType" class="form-input" required>
+                                <option value="">Select your business type</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="retail">Retail</option>
+                                <option value="education">Education</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="travel">Travel & Tourism</option>
+                                <option value="finance">Finance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Password
+                            </label>
+                            <div class="password-input-container">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Create a strong password"
+                                    required
+                                    autocomplete="new-password"
+                                    minlength="8"
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="password-strength-bar">
+                                    <div class="password-strength-fill" id="passwordStrength"></div>
+                                </div>
+                                <div class="password-requirements">
+                                    <div class="requirement" id="req-length">
+                                        <i class="fas fa-times"></i>
+                                        <span>At least 8 characters</span>
+                                    </div>
+                                    <div class="requirement" id="req-upper">
+                                        <i class="fas fa-times"></i>
+                                        <span>One uppercase letter</span>
+                                    </div>
+                                    <div class="requirement" id="req-lower">
+                                        <i class="fas fa-times"></i>
+                                        <span>One lowercase letter</span>
+                                    </div>
+                                    <div class="requirement" id="req-number">
+                                        <i class="fas fa-times"></i>
+                                        <span>One number</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Confirm Password
+                            </label>
+                            <div class="password-input-container">
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    class="form-input" 
+                                    placeholder="Confirm your password"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="terms" id="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="link-text">Terms of Service</a> and 
+                                <a href="#" class="link-text">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for updates and tips
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary auth-submit">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                        
+                        <div class="auth-divider">
+                            <span>or</span>
+                        </div>
+                        
+                        <button type="button" class="btn-secondary auth-google" onclick="handleGoogleSignup()">
+                            <i class="fab fa-google"></i>
+                            Sign up with Google
+                        </button>
+                        
+                        <div class="auth-switch">
+                            <p>Already have an account? 
+                                <a href="login.html" class="link-text">Sign in here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

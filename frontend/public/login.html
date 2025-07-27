@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bluetick WhatsApp Bulk Messaging</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-brand">
+            <i class="fab fa-whatsapp nav-logo"></i>
+            <span class="brand-name">Bluetick</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html#features" class="nav-link">Features</a>
+            <a href="index.html#pricing" class="nav-link">Pricing</a>
+            <a href="signup.html" class="btn-secondary nav-cta">
+                <i class="fas fa-user-plus"></i>
+                Sign Up
+            </a>
+        </div>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="index.html#features" class="mobile-nav-link">Features</a>
+        <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="signup.html" class="btn-secondary mobile-cta">
+            <i class="fas fa-user-plus"></i>
+            Sign Up
+        </a>
+    </div>
+
+    <!-- Login Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <!-- Left Side - Branding -->
+                <div class="auth-brand">
+                    <div class="auth-brand-content">
+                        <div class="auth-logo">
+                            <i class="fab fa-whatsapp auth-logo-icon"></i>
+                            <h1 class="auth-brand-title">Bluetick</h1>
+                        </div>
+                        <h2 class="auth-brand-subtitle">Welcome Back!</h2>
+                        <p class="auth-brand-description">
+                            Sign in to your account to continue managing your WhatsApp bulk messaging campaigns. 
+                            Send thousands of messages with 98% delivery rates.
+                        </p>
+                        
+                        <div class="auth-features">
+                            <div class="auth-feature">
+                                <div class="auth-feature-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="auth-feature-text">
+                                    <h4>Lightning Fast</h4>
+                                    <p>Instant message delivery</p>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-feature">
+                                <div class="auth-feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="auth-feature-text">
+                                    <h4>100% Secure</h4>
+                                    <p>Your data is protected</p>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-feature">
+                                <div class="auth-feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="auth-feature-text">
+                                    <h4>Real-time Analytics</h4>
+                                    <p>Track your campaigns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Login Form -->
+                <div class="auth-form-container">
+                    <form class="auth-form" onsubmit="handleLogin(event)">
+                        <div class="auth-form-header">
+                            <h3 class="auth-form-title">Sign In</h3>
+                            <p class="auth-form-subtitle">Enter your credentials to access your account</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="Enter your email"
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Password
+                            </label>
+                            <div class="password-input-container">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Enter your password"
+                                    required
+                                    autocomplete="current-password"
+                                >
+                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="remember" id="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#forgot-password" class="link-text">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary auth-submit">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In
+                        </button>
+                        
+                        <div class="auth-divider">
+                            <span>or</span>
+                        </div>
+                        
+                        <button type="button" class="btn-secondary auth-google" onclick="handleGoogleLogin()">
+                            <i class="fab fa-google"></i>
+                            Sign in with Google
+                        </button>
+                        
+                        <div class="auth-switch">
+                            <p>Don't have an account? 
+                                <a href="signup.html" class="link-text">Sign up here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
